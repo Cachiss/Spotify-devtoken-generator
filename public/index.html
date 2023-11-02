@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="css" href="public/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Your Spotify Token</title>
+<style>
+    body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    place-items: center;
+    display: grid;
+}
+h1{
+    font-size: xx-large;
+}
+h2{
+    font-weight: normal;
+    color: #1db954;
+}
+i{
+    cursor: pointer;
+}
+code{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    width: 800px;
+    color: white;
+    background-color: black;
+    padding: 1rem;
+    overflow-wrap: break-word;
+}
+code > p{
+    width: 90%;
+    text-wrap: wrap;
+}
+.refresh-token{
+    margin-top: 2rem;
+}
+.fa-check{
+    display: none;
+}
+.active{
+    display: block;
+}
+.inactive{
+    display: none;
+}
+</style>
+
+</head>
+<body>
+    <h1>Your Token is here</h1>
+
+    <div class="token">
+        <h2>Token</h2>
+        <code>
+            <p id="token">{{token}}</p>
+            <i class="fa fa-copy" style="font-size: 24px;" id="copy-token"></i>
+            <i class="fa fa-check" style="font-size: 24px; color:green;" id="copied-token"></i>
+        </code>
+    </div>
+    <div class="refresh-token">
+        <h2>Refresh Token</h2>
+        <code>
+            <p id="refreshToken">{{refresh_token}}</p>
+            <i class="fa fa-copy" style="font-size: 24px;" id="copy-refreshtoken"></i>
+            <i class="fa fa-check" style="font-size: 24px; color:green;" id="copied-refreshtoken"></i>        
+        </code>  
+    </div>
+    <script>
+        alert("Save secretly your tokens in your server");
+        const copyToken = document.querySelector("#copy-token");
+        const copyRefreshtoken = document.querySelector("#copy-refreshtoken");
+
+        const copiedToken = document.querySelector("#copied-token");
+        const copiedRefreshtoken = document.querySelector("#copied-refreshtoken");
+
+        const token = document.querySelector("#token");
+        const refreshToken = document.querySelector("#refreshToken");
+
+        copyToken.addEventListener('click', async()=>{
+            await navigator.clipboard.writeText(token.textContent);
+            copyToken.classList.toggle("inactive");
+            copiedToken.classList.toggle("active");
+
+            setTimeout(() => {
+                copiedToken.classList.remove("active");
+                copyToken.classList.remove("inactive");
+            }, 2000);
+        })
+
+        copyRefreshtoken.addEventListener('click', async()=>{
+            await navigator.clipboard.writeText(refreshToken.textContent);
+            copyRefreshtoken.classList.toggle("inactive");
+            copiedRefreshtoken.classList.toggle("active");
+
+            setTimeout(() => {
+                copiedRefreshtoken.classList.remove("active");
+                copyRefreshtoken.classList.remove("inactive");
+            }, 2000);
+        })
+
+
+    </script>
+</body>
+</html>
