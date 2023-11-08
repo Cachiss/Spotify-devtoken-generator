@@ -2,7 +2,7 @@
 
 This project is made for only run once, and save your credentials without make your own redirection, for example, you may be just need the Spotify api for your account, and authentication is not required in your application.
 
-So just run this program and keep your keys in your server for start to use Spotify API.
+So just run this program and keep your keys in your server to start to use Spotify API.
 
 ## Use
 
@@ -18,7 +18,7 @@ So just run this program and keep your keys in your server for start to use Spot
 
 ### Set up project
 
-Replace .env.example file to .env with your app credentials saved before.
+Replace .env.example name file to .env with your app credentials saved before (mainly refresh token).
 ```bash
 CLIENT_ID=XXXXXXXXXXXX
 CLIENT_SECRET=XXXXXXXXX
